@@ -1,0 +1,87 @@
+/* Supplied character artwork + custom ink drawings, blended into the sage paper theme. */
+.hero-grid { grid-template-columns: .94fr 1.06fr; gap: 16px; }
+.hero-art { width: calc(100% + 64px); margin-left: -8px; aspect-ratio: auto; }
+.hero-art:hover { transform: none; }
+.ink-hero { position: relative; width: 100%; --art-x: 0px; --art-y: 0px; --art-rotate: 0deg; padding-top: 15px; }
+.ink-art-canvas { position: relative; width: 100%; mix-blend-mode: multiply; transform: translate(var(--art-x), var(--art-y)) rotate(var(--art-rotate)) translateZ(0); will-change: transform; transition: transform .45s cubic-bezier(.2,.7,.3,1); }
+.ink-hero-image { display: block; width: 100%; height: auto; aspect-ratio: 720 / 650; object-fit: contain; -webkit-mask-image: radial-gradient(ellipse 95% 93% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 95% 93% at 50% 50%, #000 70%, transparent 100%); transform: translateZ(0); will-change: transform; }
+.ink-art-control { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 6px; color: #3f4537; font-family: 'Comic Sans MS', Henriette, cursive; font-style: italic; font-size: 12px; line-height: 1.4; transition: color .2s, transform .25s; background: #fdfdf5e8; border-radius: 3px; padding: 6px 9px; }
+.ink-art-control:hover { color: #657c4d; }
+.ink-art-control:focus-visible { outline: 2px solid #7f9b5e; outline-offset: 4px; }
+.ink-work-note { left: 2%; top: 0; transform: rotate(-6deg); }
+.ink-work-note > svg:first-of-type { rotate: -35deg; }
+.ink-work-note > svg:last-child { position: absolute; width: 66px; height: 29px; left: 26px; top: 28px; fill: none; stroke: #7b846d; stroke-width: 1.5; stroke-linecap: round; }
+.ink-work-note:hover { transform: rotate(-3deg) translateY(-2px); }
+.ink-focus-note { right: 2%; top: 3%; display: flex; flex-direction: column; gap: 0; background: transparent; transform: rotate(5deg); padding: 0 5px; }
+.ink-focus-note > img { width: 47px; height: 38px; object-fit: contain; mix-blend-mode: multiply; transition: transform .3s; }
+.ink-focus-note:hover > img { transform: rotate(-9deg); }
+.ink-focus-note > span { display: flex; align-items: center; gap: 6px; padding: 2px 4px; background: #fdfdf5db; }
+.focus-state { width: 5px; height: 5px; background: #b9bdaf; border-radius: 50%; }
+.ink-focus-note[aria-pressed='true'] .focus-state { background: #789456; box-shadow: 0 0 0 3px #c5de9b45; }
+.ink-thought-note { left: -1%; top: 54%; padding: 4px 7px; border-bottom: 1px solid #9fa98e; border-radius: 0; transform: rotate(-6deg); background: #fdfdf5e8; }
+.ink-thought-note:hover { transform: rotate(-3deg) translateY(-2px); }
+.ink-thought-note > svg { transition: transform .4s; }
+.ink-thought-note:hover > svg { transform: rotate(100deg); }
+.ink-orbit-spark { position: absolute; right: 0; top: 44%; width: 23px; height: 23px; stroke: #4b5142; stroke-width: 2; fill: none; animation: ink-spark-turn 10s ease-in-out infinite; }
+.ink-art-caption { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; text-align: center; min-height: 42px; margin-top: -3px; padding: 0 20px; color: #788069; font-size: 12px; font-style: italic; line-height: 1.5; }
+.ink-caption-line { display: block; width: 79px; height: 6px; border-bottom: 1px solid #a5af97; border-radius: 50%; transform: rotate(-3deg); }
+.ink-hero.is-focused .ink-orbit-spark { animation-play-state: paused; }
+.ink-hero.is-focused .ink-art-canvas { transform: none; }
+.about-portrait-frame, .ink-portrait-frame { position: relative; width: 100%; max-width: 340px; margin-inline: auto; display: flex; align-items: center; justify-content: center; }
+.about-portrait-frame::before, .ink-portrait-frame::before { display: none !important; }
+.about-portrait-frame .portrait, .ink-portrait-frame .portrait { position: relative; width: 100%; height: auto; object-fit: contain; margin: 0 auto; filter: drop-shadow(0 12px 28px rgba(45, 52, 38, 0.12)); transition: transform .4s cubic-bezier(0.2, 0.8, 0.2, 1), filter .4s ease; }
+.about-portrait-frame .portrait:hover, .ink-portrait-frame .portrait:hover { transform: rotate(-1.5deg) scale(1.02); filter: drop-shadow(0 16px 32px rgba(45, 52, 38, 0.16)); }
+.portrait-pencil-line { display: none !important; }
+.about-portrait-caption, .ink-portrait-caption { text-align: center; font-size: 12.5px; font-style: italic; margin-top: 14px; color: #758064; }
+.work-flower { width: 74px; height: auto; aspect-ratio: 307 / 233; object-fit: contain; mix-blend-mode: multiply; margin-bottom: 15px; animation: none; transition: transform .35s; }
+.work-flower:hover { animation: none; transform: rotate(-7deg) translateY(-3px); }
+.project-cover { overflow: visible; }
+.project-cover > img { border-color: #b7c0a759; border-radius: 3px; }
+.portfolio-card-button:hover .project-cover > img { box-shadow: 3px 7px 17px #46513b10; }
+.experience-ink-doodle { display: block; width: 146px; height: auto; margin: 28px 0 0 32px; transform: rotate(-8deg); mix-blend-mode: multiply; opacity: .85; transition: transform .35s; }
+.experience-ink-doodle:hover { transform: rotate(-3deg) translateY(-3px); }
+.contact-copy { position: relative; }
+.contact-ink-doodle { float: right; width: 68px; height: auto; margin: -17px 12px 0 8px; transform: rotate(8deg); mix-blend-mode: multiply; transition: transform .35s; }
+.contact-ink-doodle:hover { transform: rotate(-3deg); }
+.case-cover > img { background: var(--paper); }
+@keyframes ink-spark-turn { 0%, 65%, 100% { transform: rotate(0); } 80% { transform: rotate(90deg); } }
+@media (max-width: 1099px) and (min-width: 750px) {
+  .hero-art { width: 100%; margin-left: 0; }
+  .ink-art-control { font-size: 10px; }
+  .ink-work-note { top: -9px; }
+  .ink-focus-note { top: -9px; }
+  .ink-focus-note > img { width: 38px; height: 31px; }
+  .ink-thought-note { left: -3%; font-size: 10px; }
+  .ink-art-caption { font-size: 11px; min-height: 48px; }
+}
+@media (max-width: 749px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 39px; }
+  .hero-art { width: 110%; max-width: 500px; margin-left: -5%; margin-right: -5%; }
+  .ink-hero { padding-top: 15px; }
+  .ink-art-control { font-size: 10px; padding: 4px 6px; }
+  .ink-work-note { left: 5%; top: -8px; }
+  .ink-work-note > svg:last-child { width: 48px; top: 20px; }
+  .ink-focus-note { right: 6%; top: -8px; gap: 0; }
+  .ink-focus-note > img { width: 38px; height: 29px; }
+  .ink-thought-note { left: 1%; top: 54%; font-size: 10px; }
+  .ink-orbit-spark { right: 4%; width: 17px; }
+  .ink-art-caption { font-size: 11px; padding-inline: 24px; min-height: 39px; margin-top: 3px; }
+  .about-portrait-frame, .ink-portrait-frame { width: 100%; max-width: 290px; height: auto; }
+  .about-portrait-frame .portrait, .ink-portrait-frame .portrait { width: 100%; height: auto; }
+  .work-flower { width: 66px; }
+  .experience-ink-doodle { width: 100px; float: right; margin: -65px 0 0 10px; }
+  .contact-ink-doodle { width: 58px; margin: -10px 0 0 8px; }
+}
+@media (min-width: 540px) and (max-width: 749px) { .hero-art { width: 100%; margin-inline: auto; } }
+@media (max-width: 350px) {
+  .ink-art-control { font-size: 9px; }
+  .ink-art-caption { min-height: 46px; }
+  .ink-focus-note > img { width: 31px; height: 26px; }
+  .experience-ink-doodle { width: 79px; margin-top: -55px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-orbit-spark { animation: none; }
+  .ink-art-canvas, .ink-hero.is-focused .ink-art-canvas { transform: none; transition: none; }
+  .ink-work-note:hover, .ink-thought-note:hover { transform: rotate(-6deg); }
+  .ink-focus-note:hover > img, .ink-thought-note:hover > svg { transform: none; }
+}

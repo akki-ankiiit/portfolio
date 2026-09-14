@@ -1,0 +1,20 @@
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes card-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(15px) scale(.975); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes flower-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+@keyframes flower-wave { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-13deg); } 65% { transform: rotate(10deg); } }
+.page-enter { animation: fade-in .75s ease both; }
+.hero-copy { animation: page-in .85s var(--ease) both; }
+.hero-art { animation: fade-in 1.2s .15s both; }
+.gallery-transition { animation: page-in .4s var(--ease) both; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--reveal-delay, 0ms); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+  .hero-art:hover, .portrait:hover, .folder-tab:hover img, .resource-card:hover { transform: none; }
+}
